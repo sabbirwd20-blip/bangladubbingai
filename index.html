@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BanglaDub AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div><div class="logo">BD</div></div>
+      <div><h1>BanglaDub AI</h1><p>যেকোনো ভিডিও → বাংলা AI Dubbing</p></div>
+      <button id="themeBtn" class="icon">☾</button>
+    </header>
+
+    <section class="card">
+      <h2>১. Backend সংযোগ</h2>
+      <p class="muted">Render থেকে পাওয়া backend URL এখানে দিন।</p>
+      <div class="row">
+        <input id="backendUrl" type="url" placeholder="https://your-app.onrender.com">
+        <button id="health" class="secondary">Test</button>
+      </div>
+      <pre id="healthOut" class="health"></pre>
+    </section>
+
+    <section class="card">
+      <h2>২. ভিডিও নির্বাচন করুন</h2>
+      <label id="drop" class="drop">
+        <input id="video" type="file" accept="video/*" hidden>
+        <strong>ভিডিও নির্বাচন করুন</strong>
+        <span>MP4, MOV, MKV, WebM ইত্যাদি</span>
+        <small id="fileInfo"></small>
+      </label>
+      <div class="row two">
+        <label>Source language
+          <select id="sourceLanguage">
+            <option value="auto">Auto detect</option>
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="ar">Arabic</option>
+            <option value="ur">Urdu</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+          </select>
+        </label>
+        <label>Target language
+          <input value="বাংলা (bn)" disabled>
+        </label>
+      </div>
+      <button id="start" class="primary">🎙️ বাংলা Dubbing শুরু করুন</button>
+    </section>
+
+    <section id="status" class="card hidden">
+      <h2>৩. Processing</h2>
+      <div class="progress"><div id="bar"></div></div>
+      <div class="percent" id="percent">0%</div>
+      <strong id="statusText">অপেক্ষা করুন…</strong>
+      <p id="detail" class="muted"></p>
+    </section>
+
+    <section id="result" class="card success hidden">
+      <h2>৪. বাংলা ভিডিও প্রস্তুত 🎉</h2>
+      <p>নিচের Download button চাপলে MP4 ভিডিও পাওয়া যাবে।</p>
+      <a id="download" class="download" href="#">⬇️ Download Bengali MP4</a>
+    </section>
+
+    <footer>BanglaDub AI • Database ছাড়া MVP • API key শুধু backend-এ রাখুন</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

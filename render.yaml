@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: bangladub-ai
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: ELEVENLABS_API_KEY
+        sync: false
+      - key: DUBBING_MODEL
+        value: dubbing_v2
+      - key: MAX_UPLOAD_MB
+        value: '3072'
+      - key: CORS_ORIGIN
+        value: '*'
